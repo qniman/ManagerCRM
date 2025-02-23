@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+    web:
+        build: .  # Используем Dockerfile для сборки образа
+        container_name: php_apache
+        restart: always
+        ports:
+            - "80:80"
+        volumes:
+            - ./src:/var/www/html  # Монтируем папку src в контейнер
+        depends_on:
+            - db  # Зависимость от сервиса db
+
+    db:
+        image: mysql:8.0
+        container_name: mysql_db
+        restart: always
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: rootpassword
+            MYSQL_DATABASE: mydatabase
+            MYSQL_USER: myuser
+            MYSQL_PASSWORD: mypassword
+        volumes:
+            - mysql_data:/var/lib/mysql  # Сохраняем данные MySQL в volume
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        restart: always
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: db  # Указываем хост для phpMyAdmin
+            MYSQL_ROOT_PASSWORD: rootpassword
+        depends_on:
+            - db  # Зависимость от сервиса db
+
+volumes:
+    mysql_data:  # Определяем volume для данных MySQL

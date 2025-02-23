@@ -1,0 +1,137 @@
+:root {
+    --background-color: #ececec;
+    --accent-color: #1d63ff;
+    --accent-color-hover: #2b5fd8;
+    --panel-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", serif;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    height: 50px;
+    background-color: var(--panel-color);
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+#header-navigation {
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+}
+
+.icon-button {
+    font-size: 20px;
+}
+
+.icon-button:hover {
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 50px);
+    padding: 10px;
+    gap: 10px;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: var(--panel-color);
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    gap: 10px;
+}
+
+.side-bar-profile {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, rgba(29, 99, 255, 0.2), #00000000);
+    border-radius: 100px;
+}
+.side-bar-profile:hover{
+    cursor: pointer;
+}
+
+
+.side-bar-profile-avatar {
+    height: 100%;
+}
+
+.side-bar-profile-login {
+    font-size: 14px;
+}
+
+.side-bar-button {
+    display: flex;
+    font-size: 14px;
+    padding: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    height: 30px;
+    align-items: center;
+    /*border-left: 3px solid rgba(0, 0, 0, 0);*/
+    border-radius: 100px;
+    transition: color .1s ease,
+    border .1s ease,
+    background .1s ease;
+}
+
+.side-bar-button:hover {
+    cursor: pointer;
+    color: var(--accent-color);
+    background-color: rgba(29, 99, 255, 0.2);
+}
+
+.accent-button{
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.accent-button:hover{
+    background-color: var(--accent-color-hover);
+    color: white;
+}
+
+
+.separator {
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+
+#content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: var(--panel-color);
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
